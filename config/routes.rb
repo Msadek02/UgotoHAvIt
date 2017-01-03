@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-root "homes#index"
+  root "homes#index"
 
-resources :products
-resources :sub_categories
+  resources :products
+  resources :subcategories
 end
