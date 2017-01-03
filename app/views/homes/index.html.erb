@@ -7,12 +7,24 @@
     <div class="container">
 
         <div class="row">
-
+              
             <div class="col-md-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <div class="list-group list-group-root well">
+
+                  <% @categories.each_with_index do |category, index| %>
+
+                      <a href="#item-<%= index %>" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i><%= category.name %>
+                      </a>
+
+                       <div class="list-group collapse" id="item-<%= index %>" style="height: 0px;">
+                         <% category.subcategories.each do |subcategory| %>
+                           <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
+                           <i class="glyphicon glyphicon-chevron-right"></i><%= subcategory.name %>
+                           </a>
+                        <% end %>
+                        </div>
+                    <% end %>
                 </div>
             </div>
 

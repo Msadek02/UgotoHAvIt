@@ -1,0 +1,29 @@
+<%= button_to "Add Product", new_product_path, :id => "open-contacts-dialog-btn",
+      :class => "inbox-sf-add-btn tip", :method => :get %>
+  <br>
+
+<table class="table" >
+  <thead class="bg-warning" >
+	 <tr>
+	  <th>Name</th>
+	  <th>Description</th>
+	  <th>Price</th>
+	  <th>Inventory</th>
+	  <th>Picture</th>
+	  <th>Update</th>
+	 </tr>
+   </thead>
+<% @products.each do |product| %>
+<tbody>
+	 <tr>
+	  <td><%= product.name %></td>
+	  <td><%= product.description %></td>
+	  <td><%= number_to_currency(product.price) %></td>
+	  <td><%= product.inventory %> In Store</td>
+	  <td><%= image_tag product.picture_url, size: "100" %></td>
+	  <td><%= link_to 'edit', edit_product_path(product) %></td>
+	  <td><%= link_to "Delete", product, method: :delete, data: { confirm: 'Are you sure you want to delete this alert?' } %></td>
+	 </tr>
+ </tbody>
+<% end %>
+</table>

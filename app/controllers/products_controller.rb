@@ -1,13 +1,12 @@
 class ProductsController < ApplicationController
 
-	def new 
-		@product = Product.new 
-	end
+  before_action :find_product, only: [:edit, :update, :destroy]
 
-	def index
-	end
+  def new 
+    @product = Product.new 
+  end
 
-	def create
+  def create
     @product = Product.new(product_prams)
     if @product.save
       redirect_to products_path
@@ -16,13 +15,31 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-  	@products = Product.order(created_at: :desc)
+  def update
+    if @product.update(product_params)
+      redirect_to products_path
+    else
+      render "edit"
+    end
   end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
+  end
+
+  def index
+    @products = Product.order(created_at: :desc)
+  end
+
 end
 
 private
 
-def product_prams
-   params.require(:product).permit(:name, :description, :price, :inventory, :picture)
+  def find_product
+    @product = Product.find_by_id params[:id]
+  end
+
+def product_params
+   params.require(:product).permit(:name, :description, :price, :inventory, :picture, :tag_list)
 end
