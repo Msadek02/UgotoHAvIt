@@ -20,7 +20,7 @@
                        <div class="list-group collapse" id="item-<%= index %>" style="height: 0px;">
                          <% category.subcategories.each do |subcategory| %>
                            <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
-                           <i class="glyphicon glyphicon-chevron-right"></i><%= subcategory.name %>
+                           <i class="glyphicon glyphicon-chevron-right"></i><%= subcategory.name, new_sub_category_path %>
                            </a>
                         <% end %>
                         </div>
