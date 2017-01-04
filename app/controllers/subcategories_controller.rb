@@ -1,5 +1,6 @@
 class SubcategoriesController < ApplicationController
   def show
+    
   end
 
   def new
