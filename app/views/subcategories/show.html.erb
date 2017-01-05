@@ -1,2 +1,25 @@
-<h1>SubCategories#index</h1>
-
+<section class="main-content">
+	<div class="container">
+	<% @product.each do |product| %>
+		<div class="row-fluid noborder">
+		<div class="span3 product">
+					<figure class="responsive" data-media240= data-media321= data-media481= data-title="Valentines Mens Love Bundle">
+						
+						<figcaption>
+							<h5>Valentines Mens Love Bundle<br> <em>(Save £15)</em>
+							<span>
+								
+									£150.00
+								 
+							</span>
+							</h5>
+						</figcaption>
+					<%= image_tag product.picture_url, size: "100" %></figure>
+			  </div><!--/.span3 -->
+		</div><!--/.row-fluid -->
+		<% end %>
+		<footer class="row-fluid">
+				<a href="/shop/category/limited-edition/" class="text-link">View our unique pieces</a>
+		</footer><!--/.row-fluid -->
+	</div>
+</section>
