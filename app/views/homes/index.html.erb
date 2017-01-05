@@ -1,106 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<body>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-              
-            <div class="col-md-3">
-                <div class="list-group list-group-root well">
-
-                  <% @categories.each_with_index do |category, index| %>
-
-                      <a href="#item-<%= index %>" class="list-group-item" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-chevron-right"></i><%= category.name %>
-                      </a>
-
-                       <div class="list-group collapse" id="item-<%= index %>" style="height: 0px;">
-                         <% category.subcategories.each do |subcategory| %>
-                           <%= link_to subcategory, class: 'list-group-item' do %>
-                             <i class="glyphicon glyphicon-chevron-right"><%= subcategory.name %></i>
-                           <% end %>
-
-                        <% end %>
-                        </div>
-                    <% end %>
-                </div>
+   <body>
+      <!-- Page Content -->
+      <div class="container">
+      <div class="row">
+      <div class="col-md-3">
+         <div class="list-group list-group-root well">
+            <% @categories.each_with_index do |category, index| %>
+            <a href="#item-<%= index %>" class="list-group-item" data-toggle="collapse">
+            <i class="glyphicon glyphicon-chevron-right"></i><%= category.name %>
+            </a>
+            <div class="list-group collapse" id="item-<%= index %>" style="height: 0px;">
+               <% category.subcategories.each do |subcategory| %>
+               <%= link_to subcategory, class: 'list-group-item' do %>
+               <i class="glyphicon glyphicon-chevron-right"><%= subcategory.name %></i>
+               <% end %>
+               <% end %>
             </div>
-
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="http://viewars.s279.xrea.com/sozai/s/4/3b.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://static.wixstatic.com/media/e6d846_c48b5939e01e4284a027054e716d75b2~mv2.png_srz_800_300_85_22_0.50_1.20_0.00_png_srz" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://crop.agentfirecdn.com/greathomesalabama.com/wp-content/uploads/sites/244/2015/09/mt-laurel-red-shamrock-vintage-car.jpg/800/300" alt="">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                 <% @products.each do |product| %>
-                <div class="row">
-                    
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img class="col-sm-4 col-lg-4 col-md-4" alt="" <%= image_tag product.picture_url, size: "25" %> 
-                            <div class="caption">
-                                <h4 class="pull-right"><%= number_to_currency(product.price)%></h4>
-                                <h4><div><%= link_to product.name, products_path %></div>
-                                </h4>
-                                <p><%= product.description %></p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <% end %>
-                    
-    <!-- /.container -->
-
-    <div class="container">
-
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+            <% end %>
+         </div>
+      </div>
+      <div class="col-md-9">
+      <div class="row carousel-holder">
+         <div class="col-md-12">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+               </ol>
+               <div class="carousel-inner">
+                  <div class="item active">
+                     <img class="slide-image" src="http://viewars.s279.xrea.com/sozai/s/4/3b.jpg" alt="">
+                  </div>
+                  <div class="item">
+                     <img class="slide-image" src="http://static.wixstatic.com/media/e6d846_c48b5939e01e4284a027054e716d75b2~mv2.png_srz_800_300_85_22_0.50_1.20_0.00_png_srz" alt="">
+                  </div>
+                  <div class="item">
+                     <img class="slide-image" src="http://crop.agentfirecdn.com/greathomesalabama.com/wp-content/uploads/sites/244/2015/09/mt-laurel-red-shamrock-vintage-car.jpg/800/300" alt="">
+                  </div>
+               </div>
+               <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+               <span class="glyphicon glyphicon-chevron-left"></span>
+               </a>
+               <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+               <span class="glyphicon glyphicon-chevron-right"></span>
+               </a>
+            </div>
+         </div>
+      </div>
+      <% @products.each do |product| %>
+      <div class="row">
+      <div class="col-sm-4 col-lg-4 col-md-4">
+         <div class="thumbnail">
+            <img class="col-sm-4 col-lg-4 col-md-4" alt="" <%= image_tag product.picture_url, size: "25" %> 
+            <div class="caption">
+               <h4 class="pull-right"><%= number_to_currency(product.price)%></h4>
+               <h4>
+                  <div><%= link_to product.name, products_path %></div>
+               </h4>
+               <p><%= product.description %></p>
+            </div>
+            <div class="ratings">
+               <p class="pull-right">15 reviews</p>
+               <p>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+               </p>
+            </div>
+         </div>
+      </div>
+      <% end %>
+      <!-- /.container -->
+      <div class="container">
+      </div>
+      <!-- /.container -->
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+   </body>
 </html>
