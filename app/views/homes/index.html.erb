@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
    <body>
       <!-- Page Content -->
       <div class="container">
@@ -57,9 +59,11 @@
             <div class="caption">
                <h4 class="pull-right"><%= number_to_currency(product.price)%></h4>
                <h4>
-                  <div><%= link_to product.name, products_path %></div>
+                  <div><%= link_to product.name, product %></div>
                </h4>
-               <p><%= product.description %></p>
+               <button id="toggle">Hide Description</button>
+               <p class="description"><%= product.description %></p>
+
             </div>
             <div class="ratings">
                <p class="pull-right">15 reviews</p>

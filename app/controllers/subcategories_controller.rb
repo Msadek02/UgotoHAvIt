@@ -16,7 +16,7 @@ end
 private
 
 def find_product
-  @product = Product.find_by_id params[:id]
+  @product = Product.friendly.find(params[:id])
 end
 
 def subcategories_params

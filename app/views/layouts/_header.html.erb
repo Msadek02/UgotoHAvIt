@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                     <% if user = current_user %>  
+                     <% if user = user_signed_in? %>  
                          <%= link_to 'LogOut', destroy_user_session_path, method: :delete %>
                      <% else %>
                          <%= link_to 'LogIn', new_user_session_path  %>

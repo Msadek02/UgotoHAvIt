@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:show]
   before_action :find_product, only: [:edit, :update, :destroy]
 
   def new 
@@ -32,12 +32,17 @@ class ProductsController < ApplicationController
     @products = Product.order(created_at: :desc)
   end
 
+  def show
+     @product = Product.friendly.find(params[:id])
+  end
+
 end
 
 private
 
   def find_product
-    @product = Product.find_by_id params[:id]
+    @product = Product.friendly.find(params[:id])
+    @user_id = current_user.id
   end
 
 def product_params
